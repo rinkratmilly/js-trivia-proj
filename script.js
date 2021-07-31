@@ -1,5 +1,7 @@
 // --psuedocode--
 
+// spent most of today reviewing basics and finishing hw
+
 // event listeners for buttons, (forEach)
 // innerHTML dom manip. for question and answer propogation
 // function that iterates correct class to randomize answers
