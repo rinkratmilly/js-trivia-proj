@@ -1,12 +1,7 @@
 // --psuedocode--
 
 
-
-// event listeners for buttons, (forEach)
-// innerHTML dom manip. for question and answer propogation
 // function that iterates correct class to randomize answers
-// multiple html,css,js files to correspond to different page states
-// sort w/ ternary to compare if answers are correct
 // build readme, github pages
 
 // --psuedocode--
@@ -20,69 +15,78 @@ const questions = [
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum2',
-    correctAnswer: 'correctAnswer2',
-    incorrectAnswer: ['wrongAnswer2', 'wrongAnswer22', 'wrongAnswer222'],
+    question: 'Which is Jeremy\'s favorite team?',
+    correctAnswer: 'Rangers',
+    incorrectAnswer: ['Islanders', 'Devils', 'Flyers'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum3',
-    correctAnswer: 'correctAnswer3',
-    incorrectAnswer: ['wrongAnswer3', 'wrongAnswer33', 'wrongAnswer333'],
+    question: 'When did the Westfold fall?',
+    correctAnswer: '2758',
+    incorrectAnswer: ['3542', '7', 'Middle Age'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum4',
-    correctAnswer: 'correctAnswer4',
-    incorrectAnswer: ['wrongAnswer4', 'wrongAnswer44', 'wrongAnswer444'],
+    question: 'What is the air-speed velocity of an unladen swallow?',
+    correctAnswer: 'African or European',
+    incorrectAnswer: ['Blue', 'Sir Galahad', 'Huh? I don\'t know that. Auugh'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum5',
-    correctAnswer: 'correctAnswer5',
-    incorrectAnswer: ['wrongAnswer5', 'wrongAnswer55', 'wrongAnswer555'],
+    question: 'When was the Magna Carta published?',
+    correctAnswer: '1215',
+    incorrectAnswer: ['1261', '1216', '1535'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum6',
-    correctAnswer: 'correctAnswer6',
-    incorrectAnswer: ['wrongAnswer6', 'wrongAnswer66', 'wrongAnswer666'],
+    question: 'Who fought for the right to party?',
+    correctAnswer: 'Beastie Boys',
+    incorrectAnswer: ['Baha Men', 'Boys2Men', 'Backstreet Boys'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum7',
-    correctAnswer: 'correctAnswer7',
-    incorrectAnswer: ['wrongAnswer7', 'wrongAnswer77', 'wrongAnswer777'],
+    question: 'Which work earned John Steinbeck a pulitzer in 1940?',
+    correctAnswer: 'Grapes of Wrath',
+    incorrectAnswer: ['Death of a Salesman', 'For Whom the Bell Tolls', 'A Streetcar Named Desire'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum8',
-    correctAnswer: 'correctAnswer8',
-    incorrectAnswer: ['wrongAnswer8', 'wrongAnswer88', 'wrongAnswer888'],
+    question: 'Which of these EGOT winners created "The Schwartz"?',
+    correctAnswer: 'Mel Brooks',
+    incorrectAnswer: ['Alan Menkin', 'Robert Lopez', 'Whoopi Goldberg'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum9',
-    correctAnswer: 'correctAnswer9',
-    incorrectAnswer: ['wrongAnswer9', 'wrongAnswer99', 'wrongAnswer999'],
+    question: 'Which Greek philosoper is said to have tutored Alexander',
+    correctAnswer: 'Aristotle',
+    incorrectAnswer: ['Plato', 'Epicurus', 'Socrates'],
     answeredRight: null,
   },
   {
-    question: 'lorem ipsum10',
-    correctAnswer: 'correctAnswer10',
-    incorrectAnswer: ['wrongAnswer10', 'wrongAnswer101', 'wrongAnswer10'],
+    question: 'Over what ocean did Amelia Earhart disappear?',
+    correctAnswer: 'Pacific',
+    incorrectAnswer: ['Atlantic', 'Arctic', 'Indian'],
     answeredRight: null,
   },
 ];
+
 
 let rand = Math.floor (Math.random () * questions.length);
 let currentQuestion = questions[rand];
 let buttons = document.querySelectorAll ('button');
 
-// listener on next button to apply rand functionality
+
+function answer () {
+  var element = currentQuestion.correctAnswer
+  if(currentQuestion == element)
+  console.log(element)
+}
+
+// listener on next button to pass in q's and a's 
 document.querySelector ('.next').addEventListener ('click', function () {
   rand = Math.floor (Math.random () * questions.length);
   currentQuestion = questions[rand];
+  //currentQuestion = questions.splice(rand, 1)
   document.querySelector ('#ex-code').innerText = currentQuestion.question;
   document.querySelector ('#ans4').innerText =
    currentQuestion.incorrectAnswer[2];
@@ -94,24 +98,15 @@ document.querySelector ('.next').addEventListener ('click', function () {
   document.querySelector ('.next').innerText ='Next Question'
 });
 
-// main tracking 
-document.querySelector ('#button-answer').addEventListener('click', function(event){
+//correct/incorrect listener
+document.querySelector('#button-answer').addEventListener('click', function(event){
 if (event.target.innerText == currentQuestion.correctAnswer) {
-console.log('correct');
-questions.splice(currentQuestion)
+ let userClick = event.target.innerHTML
+console.log('userclick');
+
+
 } else {
   console.log('incorrect')
 }});
 
 
-
-// testing different dom methods to access elements
-//  document.querySelector('h1').innerHTML = 'code test'
-//let test = document.getElementsByClassName('button-field').addEventListener('click', function(e) {
-//     if (e.target && e.target.nodeName == 'button'){
-//     console.log('clicked')
-
-// }
-// test();
-
-console.log (currentQuestion);

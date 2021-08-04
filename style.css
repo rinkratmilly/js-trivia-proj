@@ -10,3 +10,10 @@ code {
     padding: 33 33px;
 }
 
+.answerClass {
+    width: 100%;
+    padding: 25px;
+    background-color: green;
+    color: white;
+    font-size: 25px;
+}
