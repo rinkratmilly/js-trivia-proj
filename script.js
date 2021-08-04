@@ -1,8 +1,13 @@
 // --psuedocode--
-
+//
+// mvp
+// build readme
+//
+// stretch
 // function that iterates correct class to randomize answers
-// build readme, github pages
-
+// Clean up styling and functionality
+//
+//
 // --psuedocode--
 
 const questions = [
@@ -82,7 +87,6 @@ winLevel = document.querySelector ('.level-winner');
 document.querySelector ('.next').addEventListener ('click', function () {
   rand = Math.floor (Math.random () * questions.length);
   currentQuestion = questions[rand];
-  //currentQuestion = questions.splice(rand, 1)
   document.querySelector ('#ex-code').innerText = currentQuestion.question;
   document.querySelector ('#ans4').innerText =
     currentQuestion.incorrectAnswer[2];
@@ -94,8 +98,9 @@ document.querySelector ('.next').addEventListener ('click', function () {
   document.querySelector ('.next').innerText = 'Next Question';
 });
 
-//correct/incorrect/ win listener 
-document.querySelector ('#button-answer')
+//correct/incorrect/win listener
+document
+  .querySelector ('#button-answer')
   .addEventListener ('click', function (event) {
     var answer = currentQuestion.correctAnswer;
     let userClick = event.target.innerHTML;
@@ -103,21 +108,11 @@ document.querySelector ('#button-answer')
       score.innerText = parseInt (score.innerText) + 10;
       console.log ('correct');
       if (score.innerText >= 100) {
-        
-        console.log (score.innerText)
-      winLevel.style.opacity = 1
-     
-      };
+        console.log (score.innerText);
+        winLevel.style.opacity = 1;
+      }
     } else {
       console.log ('incorrect');
     }
     console.log (userClick);
   });
-
-// for (let i =0; i < dotClick.length; i++){
-
-//           if(score.innerText >= 100){
-//               winLevel.style.opacity = '1'
-
-//       }
-//      })}
