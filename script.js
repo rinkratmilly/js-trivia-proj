@@ -1,21 +1,19 @@
 // --psuedocode--
 
-
 // function that iterates correct class to randomize answers
 // build readme, github pages
 
 // --psuedocode--
 
-
 const questions = [
   {
-    question: 'console.log(Math.floor(10.64))',
+    question: 'What is the output of "console.log(Math.floor(10.64))',
     correctAnswer: '10',
     incorrectAnswer: ['undefined', '11', '1', '1064', '1.'],
     answeredRight: null,
   },
   {
-    question: 'Which is Jeremy\'s favorite team?',
+    question: "Which is Jeremy's favorite team?",
     correctAnswer: 'Rangers',
     incorrectAnswer: ['Islanders', 'Devils', 'Flyers'],
     answeredRight: null,
@@ -29,7 +27,7 @@ const questions = [
   {
     question: 'What is the air-speed velocity of an unladen swallow?',
     correctAnswer: 'African or European',
-    incorrectAnswer: ['Blue', 'Sir Galahad', 'Huh? I don\'t know that. Auugh'],
+    incorrectAnswer: ['Blue', 'Sir Galahad', "Huh? I don't know that. Auugh"],
     answeredRight: null,
   },
   {
@@ -47,7 +45,11 @@ const questions = [
   {
     question: 'Which work earned John Steinbeck a pulitzer in 1940?',
     correctAnswer: 'Grapes of Wrath',
-    incorrectAnswer: ['Death of a Salesman', 'For Whom the Bell Tolls', 'A Streetcar Named Desire'],
+    incorrectAnswer: [
+      'Death of a Salesman',
+      'For Whom the Bell Tolls',
+      'A Streetcar Named Desire',
+    ],
     answeredRight: null,
   },
   {
@@ -70,43 +72,52 @@ const questions = [
   },
 ];
 
-
 let rand = Math.floor (Math.random () * questions.length);
 let currentQuestion = questions[rand];
 let buttons = document.querySelectorAll ('button');
+let score = document.querySelector ('.score');
+winLevel = document.querySelector ('.level-winner');
 
-
-function answer () {
-  var element = currentQuestion.correctAnswer
-  if(currentQuestion == element)
-  console.log(element)
-}
-
-// listener on next button to pass in q's and a's 
+// listener on next button to pass in q's and a's
 document.querySelector ('.next').addEventListener ('click', function () {
   rand = Math.floor (Math.random () * questions.length);
   currentQuestion = questions[rand];
   //currentQuestion = questions.splice(rand, 1)
   document.querySelector ('#ex-code').innerText = currentQuestion.question;
   document.querySelector ('#ans4').innerText =
-   currentQuestion.incorrectAnswer[2];
+    currentQuestion.incorrectAnswer[2];
   document.querySelector ('#ans3').innerText =
-  currentQuestion.incorrectAnswer[1];
+    currentQuestion.incorrectAnswer[1];
   document.querySelector ('#ans2').innerText =
-  currentQuestion.incorrectAnswer[0];
+    currentQuestion.incorrectAnswer[0];
   document.querySelector ('#ans1').innerText = currentQuestion.correctAnswer;
-  document.querySelector ('.next').innerText ='Next Question'
+  document.querySelector ('.next').innerText = 'Next Question';
 });
 
-//correct/incorrect listener
-document.querySelector('#button-answer').addEventListener('click', function(event){
-if (event.target.innerText == currentQuestion.correctAnswer) {
- let userClick = event.target.innerHTML
-console.log('userclick');
+//correct/incorrect/ win listener 
+document.querySelector ('#button-answer')
+  .addEventListener ('click', function (event) {
+    var answer = currentQuestion.correctAnswer;
+    let userClick = event.target.innerHTML;
+    if (userClick == answer) {
+      score.innerText = parseInt (score.innerText) + 10;
+      console.log ('correct');
+      if (score.innerText >= 100) {
+        
+        console.log (score.innerText)
+      winLevel.style.opacity = 1
+     
+      };
+    } else {
+      console.log ('incorrect');
+    }
+    console.log (userClick);
+  });
 
+// for (let i =0; i < dotClick.length; i++){
 
-} else {
-  console.log('incorrect')
-}});
+//           if(score.innerText >= 100){
+//               winLevel.style.opacity = '1'
 
-
+//       }
+//      })}
